@@ -26,7 +26,7 @@ def convert_temp(temp_celsius, target_unit):
 # user chooses to break the loop or enter new values and start the program again
 def loop_break():
     while True:
-        x = input("Would you like to enter new values?(Yes/No)\n").title()
+        x = input("Would you like to enter a new desired temperature?(Yes/No)\n").title()
         if x == "Yes":
             return True
         elif x == "No":
@@ -39,21 +39,30 @@ def loop_break():
 def user_type():
     while True:
         conversion = input("Would you like to convert desired temp to Celsius, Kelvin, or Fahrenheit?"
-                           " (yes/no)\n").lower()
+                           " (Yes/No)\n").lower()
         if conversion == "yes":
             conversion_choice = input("Please input C for Celsius, K for Kelvin, or F for Fahrenheit: ").upper()
 
             print(convert_temp(float(desired), conversion_choice))
             break
+        elif conversion == "no":
+            break
         else:
             print("Please choose one of the valid entries given.")
 
 
+# test the A/C unit first by calling with different parameters
+heating_cooling(75, 65)
+heating_cooling(75, 80)
+
+# gets what user wants to input and loops until they break out
 loop = True
 while loop:
     actual = input("Please enter the current temperature: ")
     desired = input("Please enter your desired temperature: ")
 
     heating_cooling(actual, desired)
+    # asks user what scale they would like to use for temperature
     user_type()
+    # loop breaking function
     loop = loop_break()
