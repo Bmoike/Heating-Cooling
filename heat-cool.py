@@ -20,7 +20,7 @@ def convert_temp(temp_celsius, target_unit):
             case "F":
                 return f"{temp_celsius} F"
             case _:
-                print("Please choose either C for Celsius, K for Kelvin, or F for Fahrenheit")
+                target_unit = input("Please choose either C for Celsius, K for Kelvin, or F for Fahrenheit: ")
 
 
 # user chooses to break the loop or enter new values and start the program again
